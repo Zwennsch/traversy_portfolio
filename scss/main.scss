@@ -1,6 +1,75 @@
-$primary-color: #444;
+// import the settings from _config.scss
+@import 'config';
+// * means for all
+* {
+    box-sizing: border-box;
+}
 
 body{
+    // the background function should be included in the whole body
+    @include background;
     background: $primary-color;
     color: #fff;
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5 em;
+}
+
+// headings
+h1, h2, h3 {
+    margin: 0;
+    font-weight: 400;
+    // in sass you can nest
+    &.lg-heading{
+        font-size: 6rem; //6 * 16px
+    }
+    &.sm-heading{
+        margin-bottom: 2rem;
+        padding: 0.2rem 1rem;
+        background: rgba(lighten($primary-color, 2), 0.5);
+    }
+}
+
+// links
+
+a {
+    color: #fff;
+    // get rid of the underline
+    text-decoration: none;
+}
+
+header{
+    // header should always be on the top
+    position: fixed;
+    // describes how close something is; the bigger the number the closer to you
+    z-index: 2;
+    width: 100;
+}
+.text-secondary{
+    color: $secondyry-color;
+}
+main{
+    padding: 4rem;
+    height: 100%;
+// this only effects the icons inside of the main class
+    .icons {
+        margin-top: 1rem;
+        a{
+            padding: 0.4rem;
+            // color only change when hovering
+            &:hover {
+                color: $secondyry-color;
+                @include easeOut();
+            }
+        }
+    }
+    &#home{
+        // don't want any scrollbars
+        overflow: hidden;
+        h1 {
+            // vh = viewport height; 20 of 100 slices from the top
+            margin-top: 20vh;
+        }
+    }
 }
