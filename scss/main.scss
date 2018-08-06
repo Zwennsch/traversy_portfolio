@@ -48,7 +48,7 @@ header{
     width: 100;
 }
 .text-secondary{
-    color: $secondyry-color;
+    color: $secondary-color;
 }
 main{
     padding: 4rem;
@@ -60,7 +60,7 @@ main{
             padding: 0.4rem;
             // color only change when hovering
             &:hover {
-                color: $secondyry-color;
+                color: $secondary-color;
                 @include easeOut();
             }
         }
